@@ -53,5 +53,6 @@ function topics_vider_tables($nom_meta_base_version) {
 	sql_delete('spip_versions_fragments', sql_in('objet', array('topic')));
 	sql_delete('spip_forum', sql_in('objet', array('topic')));
 
+	effacer_meta('topics');
 	effacer_meta($nom_meta_base_version);
 }
