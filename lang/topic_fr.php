@@ -15,6 +15,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'champ_texte_label' => 'Texte',
 	'champ_titre_label' => 'Titre',
 	'confirmer_supprimer_topic' => 'Confirmez-vous la suppression de ce sujet ?',
+	'confirmer_creation_topic' => 'Votre nouveau sujet vient d’être créé.',
 
 	// I
 	'icone_creer_topic' => 'Proposer un sujet',
@@ -25,7 +26,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_topics_auteur' => 'Les sujets de cet auteur',
 
 	// N
-	'notification_confirmer_creation' => 'Votre nouveau sujet vient d’être créé.',
 	'notification_activer' => 'Activer la notifcation par email de la création d’un nouveau sujet',
 	'notification_a_qui' => 'À qui ?',
 	'notification_webmaster' => 'Au webmaster du site',

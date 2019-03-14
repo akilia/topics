@@ -172,10 +172,9 @@ function topics_formulaire_traiter($flux) {
 				$notifications('nouveausujet', $id_topic, $options);
 			}
 		}
-		
 
 		// on en profite pour personnaliser le message de retour du formulaire
-		$flux['data']['message_ok'] = _T('topic:topic_confirmer_creation');
+		$flux['data']['message_ok'] = _T('topic:confirmer_creation_topic');
 	}
 	return $flux;
 }
