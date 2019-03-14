@@ -1,0 +1,45 @@
+<paquet
+	prefix="topics"
+	categorie="communication"
+	version="0.1.0"
+	etat="dev"
+	compatibilite="[3.2.3;3.2.*]"
+	logo="prive/themes/spip/images/topics-64.png"
+	documentation=""
+	schema="1.0.0" 
+>
+	<!--
+		Paquet généré le 2019-03-08 16:13:06
+	-->
+
+	<nom>Sujets de Forum</nom>
+	<!-- Dans un forum, proposer des sujets -->
+
+	<auteur>Pierre Miquel</auteur>
+	<credit>Logo : Philippe Guillot de 31mille</credit>
+
+	<licence>GNU/GPL</licence>
+	<necessite nom="forum" compatibilite="[1.11.7;]" /> 
+	<necessite nom="saisies" compatibilite="[2.28.0;]" /> 
+
+
+	<pipeline nom="autoriser" inclure="topics_autorisations.php" /> 
+
+	<pipeline nom="declarer_tables_objets_sql" inclure="base/topics.php" /> 
+	<pipeline nom="declarer_tables_interfaces" inclure="base/topics.php" /> 
+	<pipeline nom="affiche_enfants" inclure="topics_pipelines.php" /> 
+	<pipeline nom="boite_infos" inclure="topics_pipelines.php" />
+	<pipeline nom="objet_compte_enfants" inclure="topics_pipelines.php" /> 
+	<pipeline nom="optimiser_base_disparus" inclure="topics_pipelines.php" /> 
+	<pipeline nom="trig_propager_les_secteurs" inclure="topics_pipelines.php" />
+	<pipeline nom="pre_insertion" inclure="topics_pipelines.php" />
+	<pipeline nom="formulaire_traiter" inclure="topics_pipelines.php" /> 
+
+	<!-- Pipeline de plugins -->
+	<pipeline nom="compositions_declarer_heritage" inclure="topics_pipelines.php" /> 
+
+	<menu nom="topics" titre="topic:titre_topics" parent="menu_edition" icone="images/topic-16.png" action="topics" />
+
+	<chemin path="./" />
+	<chemin path="squelettes" type='public'/>
+</paquet>

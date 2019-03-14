@@ -1,0 +1,8 @@
+#FORMULAIRE_RECHERCHE_ECRIRE{#SELF,ajax}
+<div class="nettoyeur"></div>
+
+<INCLURE{fond=prive/objets/liste/topics, env, ajax, sinon=<:topic:info_aucun_topic:>}>
+
+[(#AUTORISER{creer,topic})
+	[(#URL_ECRIRE{topic_edit,new=oui}|icone_verticale{<:topic:icone_creer_topic:>,topic,new,right})]
+]

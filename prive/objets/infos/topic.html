@@ -1,0 +1,30 @@
+<BOUCLE_topic(TOPICS){id_topic=#ENV{id}}{statut?}>
+<div class="infos">
+[(#SET{texte_objet,<:topic:titre_topic:>})]
+<div class="numero"><:titre_cadre_numero_objet{objet=#GET{texte_objet}}:><p>#ID_TOPIC</p></div>
+
+[(#FORMULAIRE_INSTITUER_OBJET{topics,#ID_TOPIC})]
+
+<div class='nb_elements'><!--nb_elements--></div>
+
+[(#REM)
+
+	Bouton voir en ligne
+
+]
+<BOUCLE_publie(TOPICS){id_topic}>
+	[(#VAL{redirect}
+		|generer_url_action{type=topics&id=#ID_TOPIC}
+		|parametre_url{var_mode,calcul}
+		|icone_horizontale{<:icone_voir_en_ligne:>,racine})]
+</BOUCLE_publie>
+	[(#AUTORISER{previsualiser,topics,#ID_TOPIC,'',#ARRAY{statut,#STATUT}})
+		[(#VAL{redirect}
+			|generer_url_action{type=topics&id=#ID_TOPIC}
+			|parametre_url{var_mode,preview}
+			|icone_horizontale{<:previsualiser:>,preview})]
+	]
+<//B_publie>
+
+</div>
+</BOUCLE_topic>

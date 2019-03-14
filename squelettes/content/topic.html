@@ -1,0 +1,17 @@
+<BOUCLE_contexte_sujet_forum(TOPICS){id_topic}>
+<div>
+	<h1 class='titre topic'>#TITRE</h1>
+	[<div class="#EDIT{texte} texte topic surlignable">(#TEXTE)</div>]
+
+	[(#REM) Gestion du portfolio et des documents ]
+	[(#INCLURE{fond=inclure/documents,objet=topic,id_objet=#ID_TOPIC,id_rubrique='',env})]
+	
+	[(#REM) les réponses ]
+	<INCLURE{fond=inclure/forum,id_topic} />
+
+	[(#REM) le formulaire de saisie d'une nouvelle réponse ]
+	[<h2 class="forum-titre"><:forum:form_pet_message_commentaire:></h2>
+	(#FORMULAIRE_FORUM)]
+
+</div>
+</BOUCLE_contexte_sujet_forum>

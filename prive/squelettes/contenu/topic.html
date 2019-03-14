@@ -1,0 +1,56 @@
+[(#AUTORISER{voir,topic,#ID_TOPIC}|sinon_interdire_acces)]
+[(#SET{url_voir,#VAL{topic}|objet_info{url_voir}})]
+[(#SET{url_edit,#VAL{topic}|objet_info{url_edit}})]
+<BOUCLE_topic(TOPICS){id_topic}{statut==.*}{si #ENV{exec}|=={#GET{url_voir}}}>
+[(#BOITE_OUVRIR{[
+	[(#AUTORISER{modifier,topic,#ID_TOPIC})
+		[(#ID_TOPIC|afficher_qui_edite{topic}|non)
+			[(#URL_ECRIRE{#GET{url_edit},id_topic=#ID_TOPIC}|icone_verticale{<:topic:icone_modifier_topic:>,topic,edit,right ajax preload})]
+		]
+		[(#ID_TOPIC|afficher_qui_edite{topic}|oui)
+			[(#URL_ECRIRE{#GET{url_edit},id_topic=#ID_TOPIC}|icone_verticale{#ID_TOPIC|afficher_qui_edite{topic},warning-24,'',right edition_deja ajax preload})]
+		]
+	]
+
+	<h1>[(#RANG). ](#TITRE|sinon{<:info_sans_titre:>})[(#CHEMIN_IMAGE{topic-24.png}|balise_img{topic,cadre-icone})]</h1>
+
+],simple fiche_objet})]
+
+<div class="ajax">
+	#FORMULAIRE_DATER{topic,#ID_TOPIC}
+</div>
+
+<!--affiche_milieu-->
+
+<div id="wysiwyg">
+<INCLURE{fond=prive/objets/contenu/topic,id=#ID_TOPIC,id_topic=#ID_TOPIC,virtuel=oui,ajax=wysiwyg,wysiwyg=1}>
+</div>
+
+<div class="nettoyeur"></div>
+
+[(#AUTORISER{modifier,topic,#ID_TOPIC})
+	[(#ID_TOPIC|afficher_qui_edite{topic}|non)
+		[(#URL_ECRIRE{#GET{url_edit},id_topic=#ID_TOPIC}|icone_verticale{<:topic:icone_modifier_topic:>,topic,edit,right ajax preload})]
+	]
+	[(#ID_TOPIC|afficher_qui_edite{topic}|oui)
+		[(#URL_ECRIRE{#GET{url_edit},id_topic=#ID_TOPIC}|icone_verticale{#ID_TOPIC|afficher_qui_edite{topic},warning-24,'',right edition_deja ajax preload})]
+	]
+]
+
+#PIPELINE{afficher_complement_objet,#ARRAY{args,#ARRAY{type,topic,id,#ID_TOPIC},data,'<div class="nettoyeur"></div>'}}
+
+#BOITE_FERMER
+
+
+#SET{enfants,''}
+[(#VAL{prive/objets/contenu/topic-enfants}|trouver_fond|oui)
+	[(#SET{enfants,[(#INCLURE{fond=prive/objets/contenu/topic-enfants,id_topic,env})]})]
+]
+[(#PIPELINE{affiche_enfants,[(#ARRAY{args,#ARRAY{exec,topic,id_topic,#ID_TOPIC,objet,topic,id_objet,#ID_TOPIC},data,#GET{enfants}})]})]
+
+[(#EVAL{_AJAX}|oui)
+	<script type="text/javascript">/*<!\\[CDATA\\[*/reloadExecPage('#ENV{exec}','#navigation,#chemin,#extra');/*\\]\\]>*/</script>
+]
+</BOUCLE_topic>
+[(#ENV**{exec}|=={#GET{url_edit}}|?{#INCLURE{fond=prive/squelettes/contenu/#GET{url_edit},redirect='',env,retourajax=oui},#REM|sinon_interdire_acces})]
+<//B_topic>
