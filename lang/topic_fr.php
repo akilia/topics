@@ -32,6 +32,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'notification_webmestres' => 'À tous les webmestres',
 	'notification_admins' 	=> 'Aux webmestres et administrateurs',
 	'notification_tous' 	=> 'Aux webmestres, administrateurs et rédacteurs (mais pas aux visiteurs)',
+	'nouveau_sujet' => 'Nouveau sujet du Forum proposé par @connect_nom@.',
 
 	// R
 	'retirer_lien_topic' => 'Retirer ce sujet',

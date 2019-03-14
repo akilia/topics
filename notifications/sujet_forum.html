@@ -4,10 +4,10 @@
 
 	<h2>#TITRE</h2>
 	#TEXTE
-	[(#VAL{afap:nouveau_sujet}|_T{#ARRAY{connect_nom,#SESSION{nom}}})]
+	[(#VAL{topic:nouveau_sujet}|_T{#ARRAY{connect_nom,#SESSION{nom}}})]
 
 	<p><:forum:forum_ne_repondez_pas:>
-	[<a href="(#URL_ARTICLE|url_absolue)">Voir sur le Forum</a>]</p>
+	[<a href="(#URL_TOPIC|url_absolue)">Voir sur le Forum</a>]</p>
 	</BOUCLE_topic>
 </body>
 #FILTRE{facteur_email_wrap_to_html}
