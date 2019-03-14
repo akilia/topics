@@ -24,7 +24,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  *     liste d'option
  */
 function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
-
 	include_spip('inc/texte');
 	include_spip('inc/config');
 
@@ -64,7 +63,7 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 
 	// récupérer le mail de l'auteur·e du sujet
 	if ($id_auteur 	= sql_getfetsel('id_auteur', 'spip_auteurs_liens', 'objet='.sql_quote('topic').' AND id_objet='.intval($id_topic))) {
-		$email_from = sql_getfetsel('email', 'spip_auteurs', 'id_auteur='.intval($id_auteur_article));
+		$email_from = sql_getfetsel('email', 'spip_auteurs', 'id_auteur='.intval($id_auteur));
 	}
 
 	// hop, on envoi
