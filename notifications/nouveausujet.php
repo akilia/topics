@@ -53,7 +53,7 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 	// récupérer la liste emails de tous les auteurs du site et en faire un tableau (nécessite Facteur)
 	$res = sql_allfetsel('email', 'spip_auteurs', $where);
 	$destinataires = array_column($res, 'email');
-	$destinataires = array_filter($destinataires, 'strlen');
+	$destinataires = array_filter($destinataires, 'strlen'); //  virer les auteurs qui n'ont pas d'email
 
 
 	// récupérer le titre du sujet pour en faire…le sujet
