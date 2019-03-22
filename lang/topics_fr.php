@@ -14,5 +14,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'cfg_exemple' => 'Exemple',
 	'cfg_exemple_explication' => 'Explication de cet exemple',
 	'cfg_titre_parametrages' => 'Paramétrages',
-	'titre_page_configurer_topics' => 'Sujets de Forum',
+	'cfg_configurer_topics' => 'Sujets de Forum',
 );
