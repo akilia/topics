@@ -99,6 +99,15 @@ function formulaires_editer_topic_verifier_dist($id_topic = 'new', $id_rubrique 
 
 	$erreurs = formulaires_editer_objet_verifier('topic', $id_topic, array('titre'));
 
+
+ 
+	// Minimum 10 caractères dans le champ texte
+	$min_length = (defined('_FORUM_LONGUEUR_MINI') ? _FORUM_LONGUEUR_MINI : 10);
+	if (strlen($texte = _request('texte')) < $min_length) {
+		$erreurs['texte'] =  _T($min_length == 10 ? 'forum:forum_attention_dix_caracteres' : 'forum:forum_attention_nb_caracteres_mini',
+			array('min' => $min_length));
+	}
+
 	return $erreurs;
 }
 
