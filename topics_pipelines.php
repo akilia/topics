@@ -187,7 +187,19 @@ function topics_formulaire_traiter($flux) {
  * @param  array $flux Données du pipeline
  * @return array       Données du pipeline
  */
-function topics_compositions_declarer_heritage($heritages){
+function topics_compositions_declarer_heritage($heritages) {
 	$heritages['topic'] = 'rubrique';
 	return $heritages;
+}
+
+/**
+ * Compatibilité avec plugin AccesRestrein 3.0
+ * Ajouter Topic à la liste des objets restreints
+ *
+ * @pipeline accesrestreint_liste_objets_exclus
+ * @param  array $objets Données du pipeline
+ * @return array       Données du pipeline
+ */
+function topics_accesrestreint_liste_objets_exclus($objets) {
+	return $objets;
 }

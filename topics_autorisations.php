@@ -138,3 +138,29 @@ if (!function_exists('autoriser_rubrique_creertopicdans') AND test_plugin_actif(
 			AND autoriser_rubrique_creertopicdans_dist($faire, $type, $id, $qui, $opt);
 	}
 }
+
+
+/*
+ * Surcharge (sans _dist) de la fonction d'autorisation de vue d'un site, si pas déjà définie
+ */
+if (!function_exists('autoriser_topic_voir')) {
+function autoriser_topic_voir($faire, $type, $id, $qui, $options) {
+	include_spip('public/quete');
+	include_spip('inc/accesrestreint');
+
+	$publique = isset($options['publique']) ? $options['publique'] : !test_espace_prive();
+	$id_auteur = isset($qui['id_auteur']) ? $qui['id_auteur'] : $GLOBALS['visiteur_session']['id_auteur'];
+
+	// Si le site fait partie des contenus restreints directement, c'est niet
+	if (in_array($id, accesrestreint_liste_objets_exclus('topicss', $publique, $id_auteur))) {
+		return false;
+	}
+
+	if (!$id_rubrique = $options['id_rubrique']) {
+		$site = quete_parent_lang('spip_topics', $id);
+		$id_rubrique = $site['id_rubrique'];
+	}
+
+	return autoriser_rubrique_voir('voir', 'rubrique', $id_rubrique, $qui, $options);
+}
+}
