@@ -31,9 +31,9 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 	$modele = 'notifications/sujet_forum';
 
 	
-	$options = lire_config('topics/notification/qui');
-	switch ($options) {
-		
+	// en fonction de l'option choisie en paramètrage du plugin, récupérer les emails des destinataires 
+	$qui = lire_config('topics/notification/qui');
+	switch ($qui) {
 		case 'webmestres':
 			$where = "webmestre='oui' AND statut!='poubelle'";
 			break;
@@ -49,14 +49,13 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 			$where = "email=".sql_quote($email_webmaster);
 			break;
 	}
-
-	// récupérer la liste emails de tous les auteurs du site et en faire un tableau (nécessite Facteur)
+	
 	$res = sql_allfetsel('email', 'spip_auteurs', $where);
 	$destinataires = array_column($res, 'email');
 	$destinataires = array_filter($destinataires, 'strlen'); //  virer les auteurs qui n'ont pas d'email
 
 
-	// récupérer le titre du sujet pour en faire…le sujet
+	// récupérer le titre du sujet pour en faire le sujet du mail
 	$titre = sql_getfetsel('titre', 'spip_topics', 'id_topic='.intval($id_topic));
 	$nom_site = lire_config('nom_site');
 	$sujet  = 'Forum '.$nom_site.' : '.$titre;
@@ -75,5 +74,4 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 		$envoyer_mail = charger_fonction('envoyer_mail', 'inc/');
 		$mail = $envoyer_mail($destinataires, $sujet, $message, $email_from);
 	}
-
 }
