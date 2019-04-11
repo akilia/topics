@@ -3,7 +3,10 @@
 	<BOUCLE_topic(TOPICS){id_topic}>
 
 	<h2>#TITRE</h2>
-	#TEXTE
+	<div>#TEXTE</div>
+
+	<hr>
+
 	[(#VAL{topic:nouveau_sujet}|_T{#ARRAY{connect_nom,#SESSION{nom}}})]
 
 	<p><:forum:forum_ne_repondez_pas:>
