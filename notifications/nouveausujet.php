@@ -67,10 +67,6 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 			$email_from = sql_getfetsel('email', 'spip_auteurs', 'id_auteur='.intval($id_auteur));
 		}
 	}
-	debug($destinataires);
-	debug($sujet);
-	debug($email_from);
-	d('lala');
 
 	// hop, on envoi
 	if (
