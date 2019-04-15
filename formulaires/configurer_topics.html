@@ -12,6 +12,7 @@
 		[(#SAISIE{case, activer, label_case=<:topic:notification_activer:>, conteneur_class=pleine_largeur})]
 		[(#SAISIE{radio, qui, label=<:topic:notification_a_qui:>, defaut=webmaster, 
 		datas=[(#ARRAY{webmaster, <:topic:notification_webmaster:>, webmestres, <:topic:notification_webmestres:>, admins, <:topic:notification_admins:>, tous, <:topic:notification_tous:> })]})]
+		[(#SAISIE{input, email_from, label=<:topic:notification_email_from:>, explication=<:topic:notification_email_from_explication:>})]
 
 		<input type="hidden" name="_meta_casier" value="topics/notification" />
 		<p class="boutons"><span class="image_loading">&nbsp;</span><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>

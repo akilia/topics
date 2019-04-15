@@ -28,6 +28,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// N
 	'notification_activer' => 'Activer la notifcation par email de la création d’un nouveau sujet',
 	'notification_a_qui' => 'À qui ?',
+	'notification_email_from' => 'Adresse email de l’expéditeur',
+	'notification_email_from_explication' => 'Par défaut, c’est l’adresse email du créateur du sujet. Vous pouvez préciser ici une adresse de type ’no-reply’ par exemple.',
 	'notification_webmaster' => 'Au webmaster du site',
 	'notification_webmestres' => 'À tous les webmestres',
 	'notification_admins' 	=> 'Aux webmestres et administrateurs',
