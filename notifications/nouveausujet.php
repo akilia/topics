@@ -62,7 +62,10 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 
 	// Email_from : c'est l'adresse email enregistrée dans la configuration, sinon, par défaut c'est l'email de l'auteur·e du sujet
 	$email_from = lire_config('topics/notification/email_from');
-	if (!$email_from or strlen($email_from) == 0) {
+	if (
+		!$email_from 
+		or strlen($email_from) == 0
+	) {
 		if ($id_auteur 	= sql_getfetsel('id_auteur', 'spip_auteurs_liens', 'objet='.sql_quote('topic').' AND id_objet='.intval($id_topic))) {
 			$email_from = sql_getfetsel('email', 'spip_auteurs', 'id_auteur='.intval($id_auteur));
 		}
