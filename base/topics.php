@@ -65,7 +65,7 @@ function topics_declarer_tables_objets_sql($tables) {
 		'date' => 'date',
 		'champs_editables'  => array('titre', 'texte', 'id_rubrique', 'id_secteur'),
 		'champs_versionnes' => array('id_rubrique', 'id_secteur'),
-		'rechercher_champs' => array("titre" => 8),
+		'rechercher_champs' => array("titre" => 8, "texte" => 5),
 		'tables_jointures'  => array(),
 		'statut_textes_instituer' => array(
 			'prepa'    => 'texte_statut_en_cours_redaction',
