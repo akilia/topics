@@ -21,9 +21,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'icone_creer_topic' => 'Proposer un sujet',
 	'icone_modifier_topic' => 'Modifier ce sujet',
 	'info_1_topic' => 'Un sujet',
-	'info_aucun_topic' => 'Aucun sujet',
-	'info_nb_topics' => '@nb@ sujets',
-	'info_topics_auteur' => 'Les sujets de cet auteur',
+	'info_aucun_topic' => 'Aucun sujet de forum',
+	'info_nb_topics' => '@nb@ sujets de forum',
+	'info_topics_auteur' => 'Les sujets de forum de cet auteur',
 
 	// N
 	'notification_activer' => 'Activer la notifcation par email de la création d’un nouveau sujet',
@@ -51,7 +51,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_langue_topic' => 'Langue de ce sujet',
 	'titre_logo_topic' => 'Image',
 	'titre_objets_lies_topic' => 'Liés à ce sujet',
-	'titre_topic' => 'Sujet de forum',
-	'titre_topics' => 'Sujet',
+	'titre_topic' => 'Sujets de forum',
+	'titre_topics' => 'Sujets de forum',
 	'titre_topics_rubrique' => 'Sujets de la rubrique',
 );

@@ -104,9 +104,9 @@ function topics_affiche_milieu($flux) {
  */
 function topics_affiche_auteurs_interventions($flux) {
 	if ($id_auteur = intval($flux['args']['id_auteur'])) {
-		$flux['data'] .= recuperer_fond('prive/objets/liste/topic', array(
+		$flux['data'] .= recuperer_fond('prive/objets/liste/topics', array(
 			'id_auteur' => $id_auteur,
-			'titre' => _T('topic:info_topic_auteur')
+			'titre' => _T('topic:info_topics_auteur')
 		), array('ajax' => true));
 	}
 	return $flux;
