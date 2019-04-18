@@ -40,11 +40,9 @@
 	<!-- Pipeline de plugins -->
 	<pipeline nom="compositions_declarer_heritage" inclure="topics_pipelines.php" /> 
 	<pipeline nom="accesrestreint_liste_objets_exclus" inclure="topics_pipelines.php" /> 
-	
 
 	<menu nom="topics" titre="topic:titre_topics" parent="menu_activite" icone="images/topic-16.png" action="topics" />
 	<menu nom="configurer_topics" titre="topics:cfg_configurer_topics" parent="menu_configuration" icone="images/topic-16.png" />
-
 
 	<chemin path="./" />
 	<chemin path="squelettes" type='public'/>
