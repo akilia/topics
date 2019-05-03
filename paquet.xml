@@ -1,7 +1,7 @@
 <paquet
 	prefix="topics"
 	categorie="communication"
-	version="0.3.2"
+	version="0.3.3"
 	etat="dev"
 	compatibilite="[3.2.3;3.2.*]"
 	logo="prive/themes/spip/images/topics-64.png"
@@ -20,7 +20,8 @@
 
 	<licence>GNU/GPL</licence>
 	<necessite nom="forum" compatibilite="[1.11.7;]" /> 
-	<necessite nom="saisies" compatibilite="[2.28.0;]" /> 
+	<necessite nom="saisies" compatibilite="[2.28.0;]" />
+	<necessite nom="facteur" compatibilite="[3.6.4;]" />
 
 
 	<pipeline nom="autoriser" inclure="topics_autorisations.php" /> 

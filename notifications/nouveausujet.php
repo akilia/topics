@@ -26,6 +26,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 	include_spip('inc/texte');
 	include_spip('inc/config');
+	include_spip("inc/notifications");
 	
 	// Destinataires : en fonction de l'option choisie en paramètrage du plugin, récupérer les emails des destinataires
 	$destinataires = array();
@@ -57,9 +58,6 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 	$nom_site = lire_config('nom_site');
 	$sujet  = 'Forum '.$nom_site.' : '.$titre;
 
-	// Contenu du message : on défini le modèle voulu
-	$modele = 'notifications/sujet_forum';
-
 	// Email_from : c'est l'adresse email enregistrée dans la configuration, sinon, par défaut c'est l'email de l'auteur·e du sujet
 	$email_from = lire_config('topics/notification/email_from');
 	if (
@@ -76,8 +74,8 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 		count($destinataires) > 0 
 		and $email_from
 	) {
-		$message = email_notification_objet($id_topic, 'topic', $modele);
-		$envoyer_mail = charger_fonction('envoyer_mail', 'inc/');
-		$mail = $envoyer_mail($destinataires, $sujet, $message, $email_from);
+		$modele = 'notifications/sujet_forum';
+		$texte = email_notification_objet($id_topic, 'topic', $modele);
+		notifications_envoyer_mails($destinataires, $texte, $sujet, $email_from);
 	}
 }
