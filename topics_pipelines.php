@@ -231,6 +231,34 @@ function topics_formulaire_traiter($flux) {
 }
 
 /**
+ * Ajouter des destinataires en cas de post d'une nouvelle réponse
+ *
+ * @pipeline notifications_destinataires
+ * @param  array $flux Données du pipeline
+ * @return array       Données du pipeline
+ */
+function topics_notifications_destinataires($flux) {
+	
+	$quoi = $flux['args']['quoi'];
+	$email_auteur = $flux['args']['options']['forum']['email_auteur'];
+
+	// Pour l'instant on log la liste des destinataires qui doivent recevoir une notification
+	// forumposte = les moderateurs.Au moins l'auteur du sujet
+	// forumvalide = lea liste des gens qui ont coché la case 'Prévenez-moi de toutes les nouvelles réponses de cette discussion par email'
+	if (in_array($quoi, array('forumposte', 'forumvalide'))) {
+		include_spip('notifications','inc');
+		debug($quoi, $email_auteur);
+
+		$destinataires = $flux['data'];
+		notifications_nettoyer_emails($destinataires, array($email_auteur));
+		$liste_destinataires = implode(',', $destinataires);
+		spip_log($quoi.' '.$liste_destinataires, 'topic.' . _LOG_INFO_IMPORTANTE);
+	}
+
+	return $flux;
+}
+
+/**
  * Compatibilité avec plugin Compositions
  * Déclaration de l'héritage avec les rubriques
  *

@@ -37,6 +37,7 @@
 	<pipeline nom="trig_propager_les_secteurs" inclure="topics_pipelines.php" />
 	<pipeline nom="pre_insertion" inclure="topics_pipelines.php" />
 	<pipeline nom="formulaire_traiter" inclure="topics_pipelines.php" /> 
+	<pipeline nom="notifications_destinataires" inclure="topics_pipelines.php" /> 
 
 	<!-- Pipeline de plugins -->
 	<pipeline nom="compositions_declarer_heritage" inclure="topics_pipelines.php" /> 
