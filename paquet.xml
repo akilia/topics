@@ -1,9 +1,9 @@
 <paquet
 	prefix="topics"
 	categorie="communication"
-	version="0.3.3"
+	version="0.3.4"
 	etat="dev"
-	compatibilite="[3.2.3;3.2.*]"
+	compatibilite="[3.2.3;3.3.*]"
 	logo="prive/themes/spip/images/topics-64.png"
 	documentation=""
 	schema="1.0.0" 
@@ -22,6 +22,7 @@
 	<necessite nom="forum" compatibilite="[1.11.7;]" /> 
 	<necessite nom="saisies" compatibilite="[2.28.0;]" />
 	<necessite nom="facteur" compatibilite="[3.6.4;]" />
+	<utilise nom='accelerer_jobs' compatibilite="[0.2.0;]" />
 
 
 	<pipeline nom="autoriser" inclure="topics_autorisations.php" /> 
