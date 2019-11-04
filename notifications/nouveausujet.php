@@ -81,7 +81,7 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 		// La fonction notifications_envoyer_mails() ajoute les notifs dans la file des travaux (voir https://www.spip.net/fr_article5527.html)
 		// Du coup, sur un site à faible audience, il peut se passer un certain temps avant que les premières notifs ne soient envoyées.
 		// Si le plugin Accélerer Jobs est présent, on pousse immédiatement les 50 premières notifs.
-		if (test_plugin_actif('accelerer_jobs') {
+		if (test_plugin_actif('accelerer_jobs')) {
 			$accelerer_jobs = charger_fonction('accelerer_jobs','action');
 			$accelerer_jobs('envoyer_mail/50');
 		}
