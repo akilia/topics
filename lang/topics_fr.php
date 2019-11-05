@@ -7,12 +7,15 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
-	// T
-	'topics_titre' => 'Sujets de Forum',
-
 	// C
 	'cfg_exemple' => 'Exemple',
 	'cfg_exemple_explication' => 'Explication de cet exemple',
 	'cfg_titre_parametrages' => 'Paramétrages',
 	'cfg_configurer_topics' => 'Sujets de Forum',
+
+	// N
+	'nb_messages_forum' => 'Nombre messages',
+
+	// T
+	'topics_titre' => 'Sujets de Forum',
 );
