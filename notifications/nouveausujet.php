@@ -29,7 +29,7 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 	include_spip("inc/notifications");
 	
 	// Destinataires : en fonction de l'option choisie en paramètrage du plugin, récupérer les emails des destinataires
-	$destinataires = array();
+	$tous = array();
 	$qui = lire_config('topics/notification/qui');
 	switch ($qui) {
 		case 'webmestres':
@@ -49,9 +49,18 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 	}
 	
 	$res = sql_allfetsel('email', 'spip_auteurs', $where);
-	$destinataires = array_column($res, 'email');
-	$destinataires = array_filter($destinataires, 'strlen'); //  virer les auteurs qui n'ont pas d'email
+	$tous = array_column($res, 'email');
 
+	$destinataires = pipeline('notifications_destinataires',
+		array(
+			'args' => array('quoi' => $quoi, 'id' => $id_topic, 'options' => $options),
+			'data' => $tous
+		)
+	);
+
+	// Nettoyer le tableau des destinataires
+	// pas d'exclusion ici : on envoi la notification également à l'auteur·e 
+	notifications_nettoyer_emails($destinataires);
 
 	// Sujet du mail : récupérer le titre du sujet
 	$titre = sql_getfetsel('titre', 'spip_topics', 'id_topic='.intval($id_topic));
