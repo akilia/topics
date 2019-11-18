@@ -22,7 +22,7 @@
 		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
 			<td class="statut">[(#STATUT|puce_statut{topic,#ID_TOPIC,#ID_RUBRIQUE})]</td> 
 			<td class="titre principale">[(#LOGO_TOPIC|image_reduire{20,26})]<a href="[(#ID_TOPIC|generer_url_entite{topic})]" title="<:info_numero_abbreviation|attribut_html:> #ID_TOPIC">[(#RANG). ]#TITRE</a></td>
-			<td class='posts center' style="text-align: center"><BOUCLE_posts(FORUMS){id_objet=#ID_TOPIC}{objet=topic}{tous}> </BOUCLE_posts>[(#TOTAL_BOUCLE)]</B_posts></td>
+			<td class='posts center' style="text-align: center"><BOUCLE_total_posts(FORUMS){id_objet=#ID_TOPIC}{objet=topic}{tous}> </BOUCLE_total_posts>[(#TOTAL_BOUCLE)]</B_total_posts></td>
 			<td class="date secondaire">[(#DATE|affdate_jourcourt)]</td> 
 			<td class="id">[(#AUTORISER{modifier,topic,#ID_TOPIC}|?{
 				<a href="[(#URL_ECRIRE{topic_edit,id_topic=#ID_TOPIC})]">#ID_TOPIC</a>,
