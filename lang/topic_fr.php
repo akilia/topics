@@ -26,8 +26,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_topics_auteur' => 'Les sujets de forum de cet auteur',
 
 	// N
-	'notification_activer' => 'Activer la notification par email de la création d’un nouveau sujet',
-	'notification_a_qui' => 'À qui ?',
+	'notification_activer' => 'Activer l’annonce des nouveaux sujets',
+	'notification_a_qui' => 'Envoyer cette notification à&nbsp;:',
 	'notification_email_from' => 'Adresse email de l’expéditeur',
 	'notification_email_from_explication' => 'Par défaut, c’est l’adresse email du créateur du sujet. Vous pouvez préciser ici une adresse de type ’no-reply’ par exemple.',
 	'notification_webmaster' => 'Au webmestre principal',
