@@ -5,25 +5,25 @@ Dans un forum, proposer des sujets
 Avoir un objet éditorial dédié à la création de sujet pour un Forum
 
 ## Pourquoi ce besoin ?
-La notion de Forum est native dans SPIP grâce à la présence d'un plugin appelé Forum, livré dans le paquet /plugins-dist.
-Le plugin Notifications est quasi indispensable : il permet de gérer un grand nombre d'options via son menu de configuration. S
+La gestion de Forums privés et publics est native dans SPIP grâce à la présence d'un plugin appelé Forum, livré dans le paquet /plugins-dist.
 
-En fait, ce plugin Forum **gére les commentaires** (ou messages, c'est selon) attaché à n'importe quel objets éditorial de SPIP (et pas seulement les articles !).
+En fait, ce plugin Forum **gére les commentaires** (ou messages, c'est selon) attachés à n'importe quel objets éditorial de SPIP (et pas seulement les articles !).
 La création **des sujets** passe par exemple parles articles.
 
-Personnellement, j'aime bien l'idée d'avoir un objet éditorial dédié, et laisser les articles à la gestion 
-d'un Blog, d'une actualité.
+Avoir un objet éditorial dédié apporte qqs avantages
+Gestion dédié des fichiers attachés
 
 ## Prérequis et Configuration
 
 ### Prérequis
 SPIP >= 3.2
 
-Certains plugins sont pris en compte automatiquement à l'installation
+**Les plugins pris en compte automatiquement à l'installation**
 * Saisies
 * Facteur
 
-D'autres sont recommandés
+**D'autres sont recommandés**
+* Notifications (quasi indispensable !) : il permet de gérer un grand nombre d'options via son menu de configuration.
 * Magnet
 
 ### Configuration
