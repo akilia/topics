@@ -8,10 +8,14 @@ Avoir un objet éditorial dédié à la création de sujet pour un Forum
 La gestion de Forums privés et publics est native dans SPIP grâce à la présence d'un plugin appelé Forum, livré dans le paquet /plugins-dist.
 
 En fait, ce plugin Forum **gére les commentaires** (ou messages, c'est selon) attachés à n'importe quel objets éditorial de SPIP (et pas seulement les articles !).
-La création **des sujets** passe par exemple parles articles.
+La création **des sujets** passe par exemple par les articles.
 
 Avoir un objet éditorial dédié apporte qqs avantages
-Gestion dédié des fichiers attachés
+* Gestion dédié des fichiers attachés;
+* possibilités d'avoir des stats dédiés (plugin Stat Objets);
+* Tableau liste des sujets avec infos dédiées (colonne nbre de réponse, etc.)
+* fournir des squelettes dédiés;
+* etc.
 
 ## Prérequis et Configuration
 
