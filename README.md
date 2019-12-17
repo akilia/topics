@@ -32,7 +32,7 @@ SPIP >= 3.2
 **D'autres sont recommandés**
 * [Comments](https://contrib.spip.net/Comment-3-pour-SPIP-3) : il permet entre autres de choisir un affichage des commentaires en liste à plat, en enfilade (thread), ou en enfilade à un seul niveau.
 * [Notifications](https://contrib.spip.net/Notifications) : il permet entre autres une gestion fine des notifications des forums publics.
-> Note importante : avec la combinaison de Comments et Notifications, le formulaire de commentaire #FORMULAIRE_FORUM de SPIP propose de s’abonner ou non à la discussion par courriel, via une case à cocher.
+> Note importante : si les deux plugins Comments et Notifications sont activés, le formulaire de commentaire #FORMULAIRE_FORUM de SPIP propose de s’abonner ou non à la discussion par courriel via une case à cocher.
 
 * [Nospam](https://contrib.spip.net/NoSPAM) : pour limiter les SPAMs, comme son nom l’indique, sans emmerder les internautes par un captcha.
 * [Magnet](https://contrib.spip.net/magnet) : pour par exemple mettre en avant un ou des sujets.
