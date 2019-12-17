@@ -26,14 +26,18 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_topics_auteur' => 'Les sujets de forum de cet auteur',
 
 	// N
-	'notification_activer' => 'Activer l’annonce des nouveaux sujets',
-	'notification_a_qui' => 'Envoyer cette notification à&nbsp;:',
-	'notification_email_from' => 'Adresse email de l’expéditeur',
-	'notification_email_from_explication' => 'Par défaut, c’est l’adresse email du créateur du sujet. Vous pouvez préciser ici une adresse de type ’no-reply’ par exemple.',
-	'notification_webmaster' => 'Au webmestre principal',
-	'notification_webmestres' => 'À tous les webmestres',
-	'notification_admins' 	=> 'Aux webmestres et administrateurs',
-	'notification_tous' 	=> 'Aux webmestres, administrateurs et rédacteurs (mais pas aux visiteurs)',
+	'note_commentaires_notifier_tous' => 'L’activation de cette option prévoi de donner aux rédacteurs la possibilité de se désincrire de cette notification.',
+
+	// N
+	'notification_nouveau_sujet' => 'Annonce d’un nouveau sujet',
+	'notification_nouveau_commentaire' => 'Annonce d’un nouveau commentaire',
+	'notification_sujet_qui' => 'Notifier:',
+	'notification_webmaster' => 'Le webmestre principal',
+	'notification_webmestres' => 'Les webmestres',
+	'notification_admins' 	=> 'Les webmestres et administrateurs',
+	'notification_redacteurs' 	=> 'Les webmestres, administrateurs et rédacteurs',
+	'notification_visiteurs' 	=> 'Les visiteurs',
+	'notification_commentaires_tous_auteurs' 	=> 'Notifier tous les auteurs (administrateurs et rédacteurs) du site',
 	'nouveau_sujet' => 'Nouveau sujet du Forum proposé par @connect_nom@.',
 
 	// R
