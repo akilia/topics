@@ -216,12 +216,10 @@ function topics_formulaire_traiter($flux) {
 		$flux['args']['form'] == 'editer_topic'
 		AND !is_numeric($flux['args']['args']['0']) // c'est bien une création de sujet
 	) { 
-		if (lire_config('topics/notification/activer') == 'on') {
-			$options = lire_config('topics/notification/qui');
-			$id_topic = $flux['data']['id_topic'];
-			if ($notifications = charger_fonction('notifications', 'inc')) {
-				$notifications('nouveausujet', $id_topic, $options);
-			}
+		$options = lire_config('topics/notification/sujet_qui');
+		$id_topic = $flux['data']['id_topic'];
+		if ($notifications = charger_fonction('notifications', 'inc')) {
+			$notifications('nouveausujet', $id_topic, $options);
 		}
 
 		// on en profite pour personnaliser le message de retour du formulaire
@@ -231,6 +229,7 @@ function topics_formulaire_traiter($flux) {
 }
 
 /**
+ * Pour les commentaires, qui notifier ?
  * Enregistrer dans le journal 'topic.log' le type de notification et la liste des destinataires
  *
  * @pipeline notifications_destinataires
@@ -239,15 +238,22 @@ function topics_formulaire_traiter($flux) {
  */
 function topics_notifications_destinataires($flux) {
 	
+	include_spip('notifications','inc');
 	$quoi = $flux['args']['quoi'];
-	// $email_auteur = $flux['args']['options']['forum']['email_auteur'];
 
-	// Pour l'instant on log la liste des destinataires qui doivent recevoir une notification
+	// Commentaires : notifier tous les auteurs (admins et rédacteurs) ?
+	if (
+		$quoi == 'forumposte'
+		and lire_config('topics/notification/commentaire_qui') == 'tous'
+	) {
+		$res = sql_allfetsel('email', 'spip_auteurs', "statut IN ('0minirezo', '1comite') AND statut!='poubelle'");
+		$flux['data'] = array_column($res, 'email');
+	}
+
+	// Loger la liste des destinataires qui doivent recevoir une notification
 	// forumposte = les moderateurs. Au moins l'auteur du sujet
 	// forumvalide = la liste des gens qui ont coché la case 'Prévenez-moi de toutes les nouvelles réponses de cette discussion par email'
 	if (in_array($quoi, array('forumposte', 'forumvalide', 'nouveausujet'))) {
-		include_spip('notifications','inc');
-
 		$destinataires = $flux['data'];
 		notifications_nettoyer_emails($destinataires);
 		$liste_destinataires = implode(',', $destinataires);
