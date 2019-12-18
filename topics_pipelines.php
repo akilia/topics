@@ -253,7 +253,7 @@ function topics_notifications_destinataires($flux) {
 	// Loger la liste des destinataires qui doivent recevoir une notification
 	// forumposte = les moderateurs. Au moins l'auteur du sujet
 	// forumvalide = la liste des gens qui ont coché la case 'Prévenez-moi de toutes les nouvelles réponses de cette discussion par email'
-	if (in_array($quoi, array('forumposte', 'forumvalide', 'nouveausujet'))) {
+	if (in_array($quoi, array('forumposte', 'nouveausujet'))) {
 		$destinataires = $flux['data'];
 		notifications_nettoyer_emails($destinataires);
 		$liste_destinataires = implode(',', $destinataires);
