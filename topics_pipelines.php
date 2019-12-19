@@ -247,7 +247,25 @@ function topics_notifications_destinataires($flux) {
 		and lire_config('topics/notification/commentaire_qui') == 'tous'
 	) {
 		$res = sql_allfetsel('email', 'spip_auteurs', "statut IN ('0minirezo', '1comite') AND statut!='poubelle'");
-		$flux['data'] = array_column($res, 'email');
+		$liste_totale = array_column($res, 'email');
+
+		/* Exclure les auteurs qui se sont désabonnés la notification en cours */
+		/* Exemple : quels sont les id_auteur qui se sont désabonnés des commentaires sur le sujet id_topic = 6  ? */
+
+		// A quel objet se rattache cette notification ?
+		$objet = $flux['args']['options']['forum']['objet'];	// article, topic, etc.
+		$id_objet = $flux['args']['options']['forum']['id_objet'];
+
+		// Récupérer la liste des id_auteur qui se sont désabonné de cette notification
+		$exclus = array();
+		$e = sql_allfetsel('id_auteur', 'spip_notifsubscribtions', 'objet='.sql_quote($objet).' AND id_objet='.intval($id_objet).' AND actif='.sql_quote('non'));
+		$e = array_column($e, 'id_auteur');
+		foreach ($e as $value) {
+			$exclus[] = sql_getfetsel('email', 'spip_auteurs', 'id_auteur='.$value); 
+		}
+
+		$flux['data'] = array_diff($liste_totale, $exclus);
+
 	}
 
 	// Loger la liste des destinataires qui doivent recevoir une notification

@@ -89,3 +89,36 @@ function topics_declarer_tables_objets_sql($tables) {
 
 	return $tables;
 }
+
+/**
+ * Déclaration des tables secondaires
+ *
+ * @pipeline declarer_tables_auxiliaires
+ * @param array $tables
+ *     Description des tables
+ * @return array
+ *     Description complétée des tables
+ */
+function topics_declarer_tables_auxiliaires($tables) {
+
+	$tables['spip_notifsubscribtions'] = array(
+		'field' => array(
+			'id_notifsubscriber' => 'bigint(21) AUTO_INCREMENT NOT NULL',
+			'id_auteur'          => 'bigint(21) DEFAULT "0" NOT NULL',
+			'id_objet'           => 'bigint(21) DEFAULT "0" NOT NULL',
+			'objet'              => 'varchar(25) DEFAULT "" NOT NULL',
+			'date'               => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"',
+			'actif'          	 => 'varchar(3) DEFAULT "non" NOT NULL', // [non, oui] : par défaut l'auteur est désabonné.
+			'maj'                => 'TIMESTAMP'
+		),
+		'key' => array(
+			'PRIMARY KEY'        => 'id_notifsubscriber, id_auteur, id_objet, objet',
+			'KEY id_notifsubscriber' => 'id_notifsubscriber',
+			'KEY id_auteur'      => 'id_auteur',
+			'KEY id_objet'       => 'id_objet',
+			'KEY objet'          => 'objet',
+		)
+	);
+
+	return $tables;
+}

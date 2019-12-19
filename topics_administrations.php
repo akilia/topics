@@ -28,6 +28,8 @@ function topics_upgrade($nom_meta_base_version, $version_cible) {
 
 	$maj['create'] = array(array('maj_tables', array('spip_topics')));
 
+	$maj['1.0.1'] = array(array('maj_tables', array('spip_notifsubscribtions')));
+
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
 }
@@ -43,6 +45,7 @@ function topics_upgrade($nom_meta_base_version, $version_cible) {
 function topics_vider_tables($nom_meta_base_version) {
 
 	sql_drop_table('spip_topics');
+	sql_drop_table('spip_notifsubscribtions');
 
 	# Nettoyer les liens courants (le génie optimiser_base_disparus se chargera de nettoyer toutes les tables de liens)
 	sql_delete('spip_documents_liens', sql_in('objet', array('topic')));

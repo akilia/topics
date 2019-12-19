@@ -1,12 +1,12 @@
 <paquet
 	prefix="topics"
 	categorie="communication"
-	version="0.3.7"
+	version="0.4.0"
 	etat="dev"
 	compatibilite="[3.2.3;3.3.*]"
 	logo="prive/themes/spip/images/topics-64.png"
 	documentation=""
-	schema="1.0.0" 
+	schema="1.0.1" 
 >
 	<!--
 		Paquet généré le 2019-03-08 16:13:06
@@ -29,6 +29,7 @@
 	<pipeline nom="autoriser" inclure="topics_autorisations.php" /> 
 
 	<pipeline nom="declarer_tables_objets_sql" inclure="base/topics.php" /> 
+	<pipeline nom="declarer_tables_auxiliaires" inclure="base/topics.php" /> 
 	<pipeline nom="declarer_tables_interfaces" inclure="base/topics.php" /> 
 	<pipeline nom="affiche_enfants" inclure="topics_pipelines.php" /> 
 	<pipeline nom="affiche_milieu" inclure="topics_pipelines.php" /> 
