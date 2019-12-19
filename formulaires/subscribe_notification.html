@@ -1,0 +1,18 @@
+<div class='formulaire_spip formulaire_editer formulaire_#FORM formulaire_#FORM-#ENV{id_notifsubscriber,nouveau}'>
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV**{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+	[(#ENV{editable})
+	<form method="post" action="#ENV{action}"><div>
+		#ACTION_FORMULAIRE{#ENV{action}}
+		<input type="hidden" name="id_notifsubscriber" value="#ENV{id_notifsubscriber}">
+
+		<div class="editer-groupe">
+			[(#SAISIE{case, actif, label_case="Ne plus recevoir les notifications sur les réponses à ce sujet.", valeur_oui=non, valeur_non=oui})]
+		</div>
+		[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
+		<!--extra-->
+		<p class="boutons"><input type="submit" class="submit" value="<:bouton_valider:>" /></p>
+	</div></form>
+	]
+</div>
