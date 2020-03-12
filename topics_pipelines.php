@@ -214,7 +214,7 @@ function topics_pre_insertion($flux) {
 function topics_formulaire_traiter($flux) {
 	if (
 		$flux['args']['form'] == 'editer_topic'
-		// AND !is_numeric($flux['args']['args']['0']) // c'est bien une création de sujet
+		AND !is_numeric($flux['args']['args']['0']) // c'est bien une création de sujet
 	) { 
 		$options = lire_config('topics/notification/sujet_qui');
 		$id_topic = $flux['data']['id_topic'];
