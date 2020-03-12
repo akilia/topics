@@ -208,7 +208,7 @@ function topics_pre_insertion($flux) {
 }
 
 /**
- * Notififier si un nouveau sujet est créé 
+ * Notifier si un nouveau sujet est créé 
  * note : on est sür que le sujet a déjà le statut "publie" grâce au traitement fait dans le pipeline topics_pre_insertion()
  */
 function topics_formulaire_traiter($flux) {
@@ -240,13 +240,14 @@ function topics_notifications_destinataires($flux) {
 	
 	include_spip('notifications','inc');
 	$quoi = $flux['args']['quoi'];
+	$id   = $flux['args']['id'];
 
 	// Commentaires : notifier tous les auteurs (admins et rédacteurs) ?
 	if (
 		$quoi == 'forumposte'
 		and lire_config('topics/notification/commentaire_qui') == 'tous'
 	) {
-		$res = sql_allfetsel('email', 'spip_auteurs', "statut IN ('0minirezo', '1comite') AND statut!='poubelle'");
+		$res = sql_allfetsel('email', 'spip_auteurs', "statut IN ('0minirezo', '1comite')");
 		$liste_totale = array_column($res, 'email');
 
 		/* Exclure les auteurs qui se sont désabonnés la notification en cours */
@@ -275,7 +276,7 @@ function topics_notifications_destinataires($flux) {
 		$destinataires = $flux['data'];
 		notifications_nettoyer_emails($destinataires);
 		$liste_destinataires = implode(',', $destinataires);
-		spip_log($quoi.' '.$liste_destinataires, 'topic.' . _LOG_INFO_IMPORTANTE);
+		spip_log($quoi.', id='.$id.', '.$liste_destinataires, 'topic.' . _LOG_INFO_IMPORTANTE);
 	}
 
 	return $flux;
