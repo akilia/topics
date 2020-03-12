@@ -30,16 +30,19 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 	
 	// Destinataires : en fonction de l'option choisie en paramètrage du plugin, récupérer les emails des destinataires
 	$tous = array();
-	$qui = lire_config('topics/notification/qui');
+	$qui = lire_config('topics/notification/sujet_qui');
 	switch ($qui) {
 		case 'webmestres':
 			$where = "webmestre='oui' AND statut!='poubelle'";
 			break;
 		case 'admins':
-			$where = "statut='0minirezo' AND statut!='poubelle'";
+			$where = "statut='0minirezo'";
 			break;
-		case 'tous':
-			$where = "statut IN ('0minirezo', '1comite') AND statut!='poubelle'";
+		case 'redacteurs':
+			$where = "statut IN ('0minirezo', '1comite')";
+			break;
+		case 'visiteurs':
+			$where = "statut='6forum'";
 			break;
 		case 'webmaster':
 		default:
