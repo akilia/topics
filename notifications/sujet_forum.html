@@ -6,8 +6,8 @@
 	<div>#TEXTE</div>
 
 	<hr>
-
-	[(#VAL{topic:nouveau_sujet}|_T{#ARRAY{connect_nom,#SESSION{nom}}})]
+	<BOUCLE_auteur_topic(AUTEURS){id_topic}>#SET{nom_auteur, #NOM}</BOUCLE_auteur_topic>
+	[(#VAL{topic:nouveau_sujet}|_T{#ARRAY{connect_nom,#GET{nom_auteur}}})]
 
 	<p><:forum:forum_ne_repondez_pas:>
 	[<a href="(#URL_TOPIC|url_absolue)">Voir sur le Forum</a>]</p>
