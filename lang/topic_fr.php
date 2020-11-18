@@ -34,9 +34,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'notification_sujet_qui' => 'Notifier:',
 	'notification_webmaster' => 'Le webmestre principal',
 	'notification_webmestres' => 'Les webmestres',
-	'notification_admins' 	=> 'Les webmestres et administrateurs',
-	'notification_redacteurs' 	=> 'Les webmestres, administrateurs et rédacteurs',
-	'notification_visiteurs' 	=> 'Les visiteurs',
+	'notification_admins' 	=> 'Les administrateurs (rappel : un webmestre est forcément un administrateur)',
+	'notification_redacteurs' 	=> 'Les administrateurs et rédacteurs',
+	'notification_visiteurs' 	=> 'Les administrateurs, les rédacteurs et les visiteurs',
 	'notification_commentaires_tous_auteurs' 	=> 'Notifier tous les auteurs (administrateurs et rédacteurs) du site',
 	'nouveau_sujet' => 'Nouveau sujet du Forum proposé par @connect_nom@.',
 

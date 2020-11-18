@@ -42,7 +42,7 @@ function notifications_nouveausujet_dist($quoi, $id_topic, $options) {
 			$where = "statut IN ('0minirezo', '1comite')";
 			break;
 		case 'visiteurs':
-			$where = "statut='6forum'";
+			$where = "statut IN ('0minirezo', '1comite', '6forum')";
 			break;
 		case 'webmaster':
 		default:
