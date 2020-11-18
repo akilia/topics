@@ -26,9 +26,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function topics_upgrade($nom_meta_base_version, $version_cible) {
 	$maj = array();
 
-	$maj['create'] = array(array('maj_tables', array('spip_topics')));
-
-	$maj['1.0.1'] = array(array('maj_tables', array('spip_notifsubscribtions')));
+	$maj['create'] = array(array('maj_tables', array('spip_topics','spip_notifsubscribtions')));
 
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
