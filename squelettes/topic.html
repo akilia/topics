@@ -1,0 +1,4 @@
+<BOUCLE_principale_topic(TOPICS){id_topic}>
+<BOUCLE_mot_topic(MOTS){id_topic}>#SET{id_mot, #ID_MOT}</BOUCLE_mot_topic>
+<INCLURE{fond=structure, env, id_rubrique=#ENV{id_rubrique,#ID_RUBRIQUE}, id_secteur=#ID_SECTEUR, id_mot=#GET{id_mot}, type-page=topic, composition=#COMPOSITION} />
+</BOUCLE_principale_topic>
