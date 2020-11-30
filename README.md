@@ -31,8 +31,9 @@ SPIP >= 3.2
 
 ### Configuration des notifications
 #### Destinataires pour l'annonce de la création de nouveaux sujets
-Par défaut, juste le webmestre principal.
-Mais vous pourrez choirsir aussi parmis les options suivantes :
+Par défaut, juste le webmestre principal
+
+Mais vous pourrez choirsir aussi parmi les options suivantes :
 
 * Les webmestres
 * Les administrateurs (rappel : un webmestre est forcément un administrateur)
