@@ -31,7 +31,13 @@ SPIP >= 3.2
 
 ### Configuration des notifications
 #### Destinataires pour l'annonce de la création de nouveaux sujets
-Par défaut, 
+Par défaut, juste le webmestre principal.
+Mais vous pourrez choirsir aussi parmis les options suivantes :
+
+* Les webmestres
+* Les administrateurs (rappel : un webmestre est forcément un administrateur)
+* Les administrateurs et rédacteurs
+* Les administrateurs, les rédacteurs et les visiteurs 
 
 #### Destinataires pour l'annonce de nouveaux commentaires
 Le plugin Forum propose déjà une configuration à ce propos. Il s'agit ici de prévenir les auteurs de l'article qu'un commentaire vient d'être fait.
