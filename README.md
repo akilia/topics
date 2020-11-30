@@ -43,7 +43,8 @@ Mais vous pourrez choirsir aussi parmi les options suivantes :
 #### Destinataires pour l'annonce de nouveaux commentaires
 Le plugin Forum propose déjà une configuration à ce propos. Il s'agit ici de prévenir les auteurs de l'article qu'un commentaire vient d'être fait.
 
-Autre configuration possible et à mon avis indispensable, si vous installez les deux plugins [Comments](https://contrib.spip.net/Comment-3-pour-SPIP-3) et [Notifications](https://contrib.spip.net/Notifications), le formulaire Commentaires proposera automatiquement une case pré-cochée "Prévenez-moi de tous les nouveaux commentaires de cette discussion par email".
+Autre configuration possible et à mon avis indispensable, si vous installez les deux plugins [Comments](https://contrib.spip.net/Comment-3-pour-SPIP-3) et [Notifications](https://contrib.spip.net/Notifications), le formulaire Commentaires (Forum) proposera automatiquement une case pré-cochée "Prévenez-moi de tous les nouveaux commentaires de cette discussion par email".
+
 Note : il suffit juste d'installer ces deux plugins pour que cette opion s'active.
 
 Le plugin Topics propose une troisième option : à chaque dépot d'un commentaire, prévenir tout le monde : les admins, rédacteurs et visiteurs. 
